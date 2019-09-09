@@ -13,14 +13,23 @@
            (char (+ 65 i)))
        (range 0 (num-letters n))))
 
-(defn incl [l letters]
-  (let [l* (inc (int l))]
-    (if (< l* (+ 65 (count letters)))
-        (char l*))))
+(defn incl [letters]
+  (fn [l]
+      (let [l* (inc (int l))]
+        (if (< l* (+ 65 (count letters)))
+            (char l*)))))
+
+;; instead of  (iterate (incl letters) current-letter)
+(defn letters-from [current-letter letters]
+  (if current-letter
+      (cons current-letter
+            (letters-from ((incl letters) current-letter)
+                          letters))))
 
 (defn gen-card [n card cards letters current-letter]
-  (iterate )
-  
+  (filter (fn []
+              )
+          (letters-from current-letter letters))
   (if (zero? n)
       card
       (if-let [next-letter
