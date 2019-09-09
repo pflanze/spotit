@@ -18,8 +18,14 @@
     (if (< l* (+ 65 (count letters)))
         (char l*))))
 
-(defn gen-card [cards letters current-letter]
-  )
+(defn gen-card [n card cards letters]
+  (if (zero? n)
+      #{}
+      (conj card
+            (incl letter ))))
+
+(defn gen-cards [n cards letters current-letter]
+  (gen-card n #{current-letter}))
 
 (defn gen [n]
   (let [letters
@@ -30,5 +36,5 @@
            #{}
            current-letter
            \A]
-          (gen-card current-letter
+          (gen-cards current-letter
                     ))))
