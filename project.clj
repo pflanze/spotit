@@ -7,7 +7,7 @@
                  ;; [org.clojure/core.match "0.3.0"]
                  ]
   ;; :dev-dependencies [[swank-clojure "1.3.0-SNAPSHOT"]]
-  :main database.main
+  :main dojo
   ;;:repl-options {:init-ns database.main}
   ;;:repl-options {}
   
