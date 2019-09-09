@@ -19,6 +19,8 @@
         (char l*))))
 
 (defn gen-card [n card cards letters current-letter]
+  (iterate )
+  
   (if (zero? n)
       card
       (if-let [next-letter
