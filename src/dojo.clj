@@ -1,8 +1,34 @@
-(ns dojo)
+(ns dojo
+    )
+
+(defn square [n]
+  (* n n))
 
 
-(defn gen [num-symbols-on-card]
-  (def symbols 10)
-  (loop [cards []]
-        ;;(recur )
-        'f))
+(defn num-letters [n]
+     (+ (- (square n) n) 1))
+
+(defn make-letters [n]
+  (map (fn [i]
+           (char (+ 65 i)))
+       (range 0 (num-letters n))))
+
+(defn incl [l letters]
+  (let [l* (inc (int l))]
+    (if (< l* (+ 65 (count letters)))
+        (char l*))))
+
+(defn gen-card [cards letters current-letter]
+  )
+
+(defn gen [n]
+  (let [letters
+        (make-letters n)
+        
+        ]
+    (loop [cards
+           #{}
+           current-letter
+           \A]
+          (gen-card current-letter
+                    ))))
