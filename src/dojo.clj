@@ -30,17 +30,18 @@
   (filter (fn []
               )
           (letters-from current-letter letters))
-  (if (zero? n)
-      card
-      (if-let [next-letter
-               (incl current-letter letters)]
-              (recur (dec n)
-                     (conj card
-                           )
-                     cards
-                     letters
-                     next-letter)
-              'XXX)))
+  ;; (if (zero? n)
+  ;;     card
+  ;;     (if-let [next-letter
+  ;;              (incl current-letter letters)]
+  ;;             (recur (dec n)
+  ;;                    (conj card
+  ;;                          )
+  ;;                    cards
+  ;;                    letters
+  ;;                    next-letter)
+  ;;             'XXX))
+  )
 
 (defn gen-cards [n cards letters current-letter]
   (gen-card n #{current-letter}))
