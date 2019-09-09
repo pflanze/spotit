@@ -18,11 +18,18 @@
     (if (< l* (+ 65 (count letters)))
         (char l*))))
 
-(defn gen-card [n card cards letters]
+(defn gen-card [n card cards letters current-letter]
   (if (zero? n)
-      #{}
-      (conj card
-            (incl letter ))))
+      card
+      (if-let [next-letter
+               (incl current-letter letters)]
+              (recur (dec n)
+                     (conj card
+                           )
+                     cards
+                     letters
+                     next-letter)
+              'XXX)))
 
 (defn gen-cards [n cards letters current-letter]
   (gen-card n #{current-letter}))
