@@ -1,4 +1,4 @@
-(ns dojo
+(ns spotit
     )
 
 (defn square [n]
