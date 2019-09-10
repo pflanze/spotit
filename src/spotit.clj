@@ -1,8 +1,21 @@
 (ns spotit
     )
 
+;; library
+
 (defn square [n]
   (* n n))
+
+;; A variant of iterate that stops when f returns nil
+(defn iterate*
+  "Returns a lazy sequence of x, (f x), (f (f x)) etc., which ends when f returns nil. f must be free of side-effects"
+  [f x] ((fn rec [x]
+             (lazy-seq
+              (if x
+                  (cons x (rec (f x))))))
+         x))
+
+;; /library
 
 
 (defn num-letters [n]
@@ -19,17 +32,11 @@
         (if (< l* (+ 65 (count letters)))
             (char l*)))))
 
-;; instead of  (iterate (incl letters) current-letter)
-(defn letters-from [current-letter letters]
-  (if current-letter
-      (cons current-letter
-            (letters-from ((incl letters) current-letter)
-                          letters))))
 
 (defn gen-card [n card cards letters current-letter]
   (filter (fn []
               )
-          (letters-from current-letter letters))
+          (iterate* (incl letters) current-letter))
   ;; (if (zero? n)
   ;;     card
   ;;     (if-let [next-letter
