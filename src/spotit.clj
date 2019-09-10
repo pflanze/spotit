@@ -22,9 +22,8 @@
      (+ (- (square n) n) 1))
 
 (defn make-letters [n]
-  (map (fn [i]
-           (char (+ 65 i)))
-       (range 0 (num-letters n))))
+  (->> (range 0 (num-letters n))
+       (map #(char (+ 65 %)))))
 
 (defn incl [letters]
   (fn [l]
